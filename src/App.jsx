@@ -4,7 +4,7 @@ import Landing from './components/Landing/landing'
 import Gallery from  './components/Gallery/gallery'
 import ImagePage from './components/Gallery/imagePage/imagePage'
 import Blog from './components/Blog/Blog'
-import BlogEntry from './components/Blog/blogEntry/blogEntry'
+import BlogEntry from './components/Blog/blogEntry/BlogEntry'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import {
