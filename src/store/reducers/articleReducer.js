@@ -1,4 +1,4 @@
-import {GET_ARTICLES} from '../types'
+import {GET_ARTICLES, GET_SINGLE_ARTICLE} from '../types'
 
 
 const initialstate = {
@@ -6,8 +6,12 @@ const initialstate = {
     loading: true,
 
 }
+const initialstatesingle = {
+    article: [],
+    loading: true,
+}
 
-export default function (state = initialstate, action){
+export function articlesReducer (state = initialstate, action){
     switch(action.type){
         case GET_ARTICLES:
             return {
@@ -19,3 +23,17 @@ export default function (state = initialstate, action){
         default : return state;
     }
 }
+
+export function singleArticleReducer (state = initialstatesingle, action){
+    switch(action.type){
+        case GET_SINGLE_ARTICLE:
+            return {
+                ...state,
+                article:action.payload,
+                loading:false,
+            }
+
+        default : return state;
+    }
+}
+

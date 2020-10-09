@@ -7,10 +7,10 @@ import {Link} from 'react-router-dom'
     componentDidMount(){
         this.props.getArticles() 
     }
+
+
     render() {
         const {articles} = this.props.articles
-        console.log(articles)
-
         
         return (
             <div>
