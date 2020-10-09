@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {getArticles} from '../../store/actions/articlesActions'
 import {Link} from 'react-router-dom'
 
-function Blog() {
-    const [data, setData] = useState([]);
-
-    useEffect(() =>{
-    
-        fetchData();
-    },[]);
-
-    const fetchData = async () => { 
-        const result = await axios('http://localhost:8000/wp-json/wp/v2/posts');
-        console.log(result);
-        setData(result.data);
-        console.log(data);
+ class Blog extends Component {
+    componentDidMount(){
+        this.props.getArticles() 
     }
-  
-    return(
-        <div>
-            {data != [] ? data.map(data => (
-                <h1 key={data.id}><Link to={`/blog/${data.id}`}>{data.title.rendered}</Link></h1>
-            )): <p>loading...</p>}
-        </div>
-    );
+    render() {
+        const {articles} = this.props.articles
+        console.log(articles)
+
+        
+        return (
+            <div>
+                {articles.map(article => 
+                     <h1 key={article.id}>
+                         <Link to={`/blog/${article.id}`}> {article.title.rendered} </Link>
+                     </h1>
+                )}
+            </div>
+        )
+    }
 }
 
-export default Blog;
+const mapStateToProps  = (state) => ({articles:state.articles})
+
+export default connect(mapStateToProps, {getArticles})(Blog)
