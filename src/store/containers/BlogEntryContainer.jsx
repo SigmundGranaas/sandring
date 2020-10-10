@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getSingleArticle} from '../../../store/actions/articlesActions'
+import {getSingleArticle} from '../actions/articlesActions'
+import SingleArticle from '../../components/Blog/SingleArticle'
 
 
 class BlogEntry extends Component {
@@ -14,12 +15,7 @@ class BlogEntry extends Component {
 
     return(
         <div>
-            {article.map(article => 
-            <div>
-                     <h1 key={article.id}> {article.title.rendered}</h1>
-                     <div dangerouslySetInnerHTML={{__html: article.content.rendered}}/>
-            </div>
-            )}
+            <SingleArticle article={article}/>
         </div>
     );
     }

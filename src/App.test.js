@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
-import { shallow, mount } from "enzyme";
+import { shallow} from "enzyme";
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 

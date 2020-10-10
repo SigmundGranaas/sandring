@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {getArticles} from '../../store/actions/articlesActions'
-import {Link} from 'react-router-dom'
+import {getArticles} from '../actions/articlesActions'
+import Article from '../../components/Blog/Article'
+
 
  class Blog extends Component {
     componentDidMount(){
@@ -10,15 +11,11 @@ import {Link} from 'react-router-dom'
 
 
     render() {
-        const {articles} = this.props.articles
+        const {articles} = this.props.articles;
         
         return (
             <div>
-                {articles.map(article => 
-                     <h1 key={article.id}>
-                         <Link to={`/blog/${article.id}`}> {article.title.rendered} </Link>
-                     </h1>
-                )}
+               <Article articles={articles}/>
             </div>
         )
     }
