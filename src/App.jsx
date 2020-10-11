@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css'
-import Landing from './components/Landing/landing'
-import Gallery from  './components/Gallery/gallery'
-import ImagePage from './components/Gallery/imagePage/imagePage'
-import Blog from './store/containers/BlogContainer'
-import BlogEntry from './store/containers/BlogEntryContainer'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
+import './App.scss';
+import Landing from './components/Landing/landing';
+import Gallery from  './components/Gallery/gallery';
+import ImagePage from './components/Gallery/imagePage/imagePage';
+import Blog from './containers/BlogContainer';
+import BlogEntry from './containers/BlogEntryContainer';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import {
   BrowserRouter as Router,
   Switch,

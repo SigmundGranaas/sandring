@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {getArticles} from '../actions/articlesActions'
-import Article from '../../components/Blog/Article'
+import {getArticles} from '../store/actions/articlesActions'
+import Article from '../components/Blog/Article'
 
 
  class Blog extends Component {
