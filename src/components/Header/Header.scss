@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display+SC&display=swap');
+
+$Background-color: white;
+
+@mixin header-text-links{
+        color: black;
+        text-decoration: none;
+}
+
+@mixin link-style{
+    list-style: none; 
+}
+
+.header-logo{
+    font-family: 'Playfair Display SC', serif;
+    font-size: 28px;
+    font-weight: lighter;
+}
+
+header{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   list-style: none; 
+   min-height: 10vh;
+   background-color: $Background-color;
+   color: black;
+}
+
+.nav-list-elements{
+   @include link-style();
+}
+
+.nav-elements{
+    @include header-text-links();
+    @include link-style();
+    width: 50%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.header-links{
+    @include header-text-links();
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}

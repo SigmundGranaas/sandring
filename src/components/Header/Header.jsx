@@ -1,19 +1,28 @@
-import './Header.css'
+import './Header.scss'
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-function Header() {
+const Header = () => {
     return(
         <header>
-            <Link to="/"><h3>Logo</h3></Link>
-            <ul className="nav-links">
-                <Link to="/gallery">
+            <ul className="nav-list-elements">
+                <Link to="/" className="header-links">
+                    <li>
+                        <h1 className="header-logo">Sandring Creative Studio</h1>
+                    </li>
+                </Link>
+            </ul>
+            <ul className="nav-elements">
+                <Link to="/gallery" className="header-links">
                     <li> Gallery</li>
                 </Link>
-                <Link to="/blog">
+                <Link to="/" className="header-links">
+                    <li> Software</li>
+                </Link>
+                <Link to="/blog" className="header-links">
                     <li>Blog </li>
                 </Link>
-                <Link to="/">
+                <Link to="/" className="header-links">
                     <li>About</li>
                 </Link>
             </ul>

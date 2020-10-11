@@ -11,7 +11,7 @@ it("renders without crashing", () => {
 
 test('render logo', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/logo/i);
+  const linkElement = getByText(/Sandring/i);
   expect(linkElement).toBeInTheDocument();
 });
 
