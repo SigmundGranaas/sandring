@@ -6,8 +6,8 @@ const SingleArticle =(props) => {
     return(
         <div>
             {article.map(article => 
-            <div>
-                     <h1 key={article.id}> {article.title.rendered}</h1>
+            <div key={article.id}>
+                     <h1 > {article.title.rendered}</h1>
                      <div dangerouslySetInnerHTML={{__html: article.content.rendered}}/>
             </div>
             )} 

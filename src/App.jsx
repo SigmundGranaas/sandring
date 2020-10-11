@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
 import Landing from './components/Landing/landing';
-import Gallery from  './components/Gallery/gallery';
-import ImagePage from './components/Gallery/imagePage/imagePage';
+import Gallery from  './containers/GalleryContainer';
+import GalleryImageContainer from './containers/GalleryImageContainer';
 import Blog from './containers/BlogContainer';
 import BlogEntry from './containers/BlogEntryContainer';
 import Header from './components/Header/Header';
@@ -21,7 +21,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Landing}/>
           <Route path="/gallery" exact component={Gallery}/>
-          <Route path="/gallery/"  component={ImagePage}/>
+          <Route path="/gallery/:id"  component={GalleryImageContainer}/>
           <Route path="/blog" exact component={Blog}/>
           <Route path="/blog/:id" component={BlogEntry}/>
         </Switch>

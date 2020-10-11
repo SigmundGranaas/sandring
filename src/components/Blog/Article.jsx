@@ -8,7 +8,7 @@ const Article = (props) => {
     return(
         <div>
             {articles.map(article => 
-                <div>
+                <div key={article.id}>
                     <h1><Link to={`/blog/${article.id}`}>{article.title.rendered}</Link></h1>
                 </div>    
             )}
