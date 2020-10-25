@@ -9,14 +9,11 @@ import Article from '../components/Blog/Article'
         this.props.getArticles() 
     }
 
-
     render() {
         const {articles} = this.props.articles;
         
         return (
-            <div>
                <Article articles={articles}/>
-            </div>
         )
     }
 }

@@ -7,6 +7,10 @@
 
 import {GET_ARTICLES, ARTICLES_ERROR, GET_SINGLE_ARTICLE} from '../types'
 import axios from 'axios'
+import PostService from '../dataservices/services/PostService.ts'
+import wordpressDataService from '../dataservices/services/wordpress/wordpressDataService.ts'
+
+const postService = new PostService(new wordpressDataService());
 
 /**
  * Action for fetching all availible posts from wordpress
@@ -20,10 +24,10 @@ import axios from 'axios'
 export const getArticles = () => async dispatch => {
 
     try{
-        const res = await axios.get('http://localhost:8000/wp-json/wp/v2/posts');
+        const posts = await postService.fetchMultiplePosts();
         dispatch({
             type: GET_ARTICLES,
-            payload: res.data,
+            payload: posts,
 
         })
     }
@@ -41,7 +45,7 @@ export const getArticles = () => async dispatch => {
  * 
  * Will return res.data wrapped in [] to make it an array.
  * 
- * @param {*} id id identofiyng a single post.
+ * @param {*} id id identifiyng a single post.
  */
 export const getSingleArticle = (id) => async dispatch => {
     try{

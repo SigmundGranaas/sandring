@@ -1,4 +1,4 @@
-import {articlesReducer, singleArticleReducer} from './articleReducer';
+import {articlesReducer, singleArticleReducer} from './articleReducer.ts';
 import {singleImageReducer, imagesReducer} from './imageReducer'
 import { combineReducers } from 'redux';
 

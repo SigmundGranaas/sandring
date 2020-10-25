@@ -1,17 +1,17 @@
 import {GET_ARTICLES, GET_SINGLE_ARTICLE} from '../types'
 
-
 const initialstate = {
-    articles: [],
+    articles: {posts: []},
     loading: true,
 
 }
+
 const initialstatesingle = {
     article: [],
     loading: true,
 }
 
-export function articlesReducer (state = initialstate, action){
+export function articlesReducer (state = initialstate, action: any){
     switch(action.type){
         case GET_ARTICLES:
             return {
@@ -24,7 +24,7 @@ export function articlesReducer (state = initialstate, action){
     }
 }
 
-export function singleArticleReducer (state = initialstatesingle, action){
+export function singleArticleReducer (state = initialstatesingle, action: any){
     switch(action.type){
         case GET_SINGLE_ARTICLE:
             return {
@@ -36,4 +36,3 @@ export function singleArticleReducer (state = initialstatesingle, action){
         default : return state;
     }
 }
-
