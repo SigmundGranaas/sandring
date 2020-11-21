@@ -3,8 +3,6 @@ import { PostState, ARTICLES_LOADING, ARTICLES_ERROR, articleDispatchTypes, GET_
 
 
 const initialState: PostState = {
-    articles: null,
-    singleArticle: null,
     loading: false,
 }
 
@@ -35,4 +33,3 @@ export function articlesReducer (state = initialState, action: articleDispatchTy
         default : return state;
     }
 }
-

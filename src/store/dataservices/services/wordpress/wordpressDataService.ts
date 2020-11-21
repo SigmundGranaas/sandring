@@ -1,28 +1,34 @@
-import {MultiplePosts, PostServiceAble, SinglePost} from '../../interfaces/postServiceInterface';
 import axios from 'axios';
+import { PostServiceAble, SinglePost, MultiplePosts } from '../../../../components/Blog/interfaces/iArticle';
 
 
 class wordPressDataService implements PostServiceAble{
     wordpressURL = 'http://localhost:8000';
 
-    async fetchSinglePost(id: number): Promise<SinglePost> {
-        const res = await axios.get(`${this.wordpressURL}/wp-json/wp/v2/posts/${id}`);
+    fetchSinglePost(id: number): SinglePost {
+        const res = this.fetchSingle(id);
 
-        return this.convertToSinglePost(res.data);
+        return this.convertToSinglePost(res);
     }
 
+    async fetchSingle(id: number): Promise<object>{
+        return await axios.get(`${this.wordpressURL}/wp-json/wp/v2/posts/${id}`);
+    }
+    async fetchMultiple(): Promise<object>{
+        return await axios.get(`${this.wordpressURL}/wp-json/wp/v2/posts/`);
+    }
 
-    async fetchMultiplePosts(searchTerm?: String, offset?: number): Promise<MultiplePosts>{
-        const res = await axios.get(`${this.wordpressURL}/wp-json/wp/v2/posts/`);
+     fetchMultiplePosts(searchTerm?: String, offset?: number): MultiplePosts{
+        const res = this.fetchMultiple();
         
-        console.log(res.data);
+        console.log(res);
 
         const convertedMultiplePosts = {
             posts: new Array<SinglePost>(),
         };
 
         
-        res.data.map((post: any) => {
+        [res].map((post: any) => {
             return convertedMultiplePosts.posts.push(this.convertToSinglePost(post));
         });
         

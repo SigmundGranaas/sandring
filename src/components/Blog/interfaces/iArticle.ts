@@ -1,5 +1,3 @@
-import { Type } from "typescript";
-
 //States
 export interface PostState{
     articles?: MultiplePosts,
@@ -49,7 +47,7 @@ export interface SinglePost{
 }
 
 export interface MultiplePosts{
-    posts: SinglePost;
+    posts: SinglePost[];
 }
 
 export type articleDispatchTypes = getArticleAction | getMultipleArticlesAction | getArticleFail | articlesLoading;

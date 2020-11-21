@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getSingleArticle} from '../store/actions/articlesActions'
-import SingleArticle from '../components/Blog/SingleArticle'
+import {getSingleArticle} from '../models/articlesActions'
+import SingleArticle from '../views/SingleArticle'
 
 
 class BlogEntry extends Component {
@@ -10,7 +10,8 @@ class BlogEntry extends Component {
     }  
 
     render(){
-    const {article} = this.props.article;
+    console.log(this.props)
+    const {article} = this.props.articles;
     console.log(article)
 
     return(

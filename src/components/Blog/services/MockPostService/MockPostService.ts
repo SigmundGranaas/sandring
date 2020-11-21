@@ -11,24 +11,24 @@ class MockPostService implements PostServiceAble{
     }
 
     fetchMultiplePosts(searchTerm?: String | undefined, offset?: number | undefined): MultiplePosts {
-        return this.ToMultiokePosts(this.toSinglePost(PostMock));
+        return this.ToMultiplePosts(PostMock);
     }
 
     toSinglePost(data: any): SinglePost{
         const postFromJson: SinglePost = {
-            title: data.title,
+            title: data.title.rendered,
             image: data.image,
             id: data.id,
             content: data.content.rendered,
         }
         return postFromJson;
     }
-    ToMultiokePosts(data: any): MultiplePosts{
+    ToMultiplePosts(data: any): MultiplePosts{
         const PostsFromSinglePost: MultiplePosts = {
-            posts: new Array<SinglePost>()
+            posts: new Array<SinglePost>(),
         }
 
-        //PostsFromSinglePost.posts.push(this.toSinglePost(data))
+        PostsFromSinglePost.posts.push(this.toSinglePost(data))
 
         return PostsFromSinglePost;
     }

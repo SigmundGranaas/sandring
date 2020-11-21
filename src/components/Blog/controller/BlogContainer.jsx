@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {getArticles} from '../store/actions/articlesActions'
-import Article from '../components/Blog/Article'
+import {getArticles} from '../models/articlesActions'
+import Article from '../views/Article'
 
 
  class Blog extends Component {
@@ -11,9 +11,24 @@ import Article from '../components/Blog/Article'
 
     render() {
         const {articles} = this.props.articles;
+        const renderArticles = () => {
+
+            if(articles !=null){
+            return(
+                <Article articles={articles}/>
+            )}
+            else{
+                return(<div>
+                    loading
+                </div>)
+            }
+        }
         
         return (
-               <Article articles={articles}/>
+            <div>
+                {renderArticles()} 
+            </div>
+              
         )
     }
 }

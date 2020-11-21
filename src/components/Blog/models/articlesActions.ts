@@ -5,10 +5,9 @@
  * 
  */
 
-import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { Dispatch } from 'redux';
 
-import { articleDispatchTypes, getArticleAction, ARTICLES_ERROR, ARTICLES_LOADING, GET_ARTICLES, GET_SINGLE_ARTICLE, GET_SINGLE_ARTICLE_SUCCESS } from '../interfaces/iArticle';
+import { articleDispatchTypes, ARTICLES_ERROR, ARTICLES_LOADING, GET_SINGLE_ARTICLE_SUCCESS, GET_ARTICLES_SUCCESS } from '../interfaces/iArticle';
 import Mock from '../services/MockPostService/MockPostService'
 
 export const postService = new Mock();
@@ -31,8 +30,10 @@ export const getArticles = (id?: number) => async (dispatch: Dispatch<articleDis
     
     const res = await postService.fetchMultiplePosts();
 
+    console.log(res)
+
     dispatch({
-        type: GET_ARTICLES,
+        type: GET_ARTICLES_SUCCESS,
         payload: res,
     })
 
