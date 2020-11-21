@@ -6,11 +6,9 @@
  */
 
 import {GET_ARTICLES, ARTICLES_ERROR, GET_SINGLE_ARTICLE} from '../types'
-import axios from 'axios'
-import PostService from '../dataservices/services/PostService.ts'
-import wordpressDataService from '../dataservices/services/wordpress/wordpressDataService.ts'
+import Mock from '../dataservices/services/MockPostService/MockPostService'
 
-const postService = new PostService(new wordpressDataService());
+export const postService = new Mock();
 
 /**
  * Action for fetching all availible posts from wordpress
@@ -21,10 +19,10 @@ const postService = new PostService(new wordpressDataService());
  * 
  * @return will save array of posts to state
  */
-export const getArticles = () => async dispatch => {
+export const getArticles = () => async (dispatch: (arg0: { type: string; payload: any; }) => void) => {
 
     try{
-        const posts = await postService.fetchMultiplePosts();
+        const posts = await postService.fetchSinglePost(1);
         dispatch({
             type: GET_ARTICLES,
             payload: posts,
@@ -47,12 +45,12 @@ export const getArticles = () => async dispatch => {
  * 
  * @param {*} id id identifiyng a single post.
  */
-export const getSingleArticle = (id) => async dispatch => {
+export const getSingleArticle = () => async (dispatch: (arg0: { type: string; payload: void | any[]; }) => void) => {
     try{
-        const res = await axios.get(`http://localhost:8000/wp-json/wp/v2/posts/${id}`);
+        const res = await postService.fetchSinglePost(1);
         dispatch({
             type: GET_SINGLE_ARTICLE,
-            payload: [res.data],
+            payload: [res],
         })
     }
     catch(e){

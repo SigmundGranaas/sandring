@@ -29,7 +29,7 @@ export function singleArticleReducer (state = initialstatesingle, action: any){
         case GET_SINGLE_ARTICLE:
             return {
                 ...state,
-                article:action.payload,
+                article:{posts:[action.payload]},
                 loading:false,
             }
 

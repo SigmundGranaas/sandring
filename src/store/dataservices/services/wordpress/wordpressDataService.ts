@@ -30,11 +30,11 @@ class wordPressDataService implements PostServiceAble{
     }
 
     private convertToSinglePost(data: any): SinglePost{
-        const singlePost = {
+        const singlePost: SinglePost = {
             title: data.title.rendered,
             id: data.id,
             image: "",
-
+            content: "",
         };
         return singlePost; 
     }

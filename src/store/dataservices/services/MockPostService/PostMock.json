@@ -1,0 +1,10 @@
+{
+    "title": {
+        "rendered": "title"
+    },
+    "image": "image",
+    "content":{
+        "rendered": "<p>Very nice article<p>"
+    },
+    "id": 3
+}

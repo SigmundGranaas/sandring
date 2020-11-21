@@ -8,6 +8,7 @@ interface SinglePost{
     title: String;
     image: String;
     id: number;
+    content: any;
 }
 
 interface MultiplePosts{
