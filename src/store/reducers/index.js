@@ -1,10 +1,9 @@
-import {articlesReducer, singleArticleReducer} from './articleReducer.ts';
+import {articleReducer} from '../../components/Blog/models/articleReducer'
 import {singleImageReducer, imagesReducer} from './imageReducer'
 import { combineReducers } from 'redux';
 
 export default combineReducers({
-    articles: articlesReducer,
-    article: singleArticleReducer,
+    articles: articleReducer,
     images: imagesReducer,
     image: singleImageReducer,
 })

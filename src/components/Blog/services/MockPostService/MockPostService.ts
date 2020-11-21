@@ -1,15 +1,16 @@
-import { PostServiceAble, SinglePost, MultiplePosts } from "../../interfaces/postServiceInterface"
+
+import { PostServiceAble, SinglePost, MultiplePosts } from '../../interfaces/iArticle';
 import PostMock from './PostMock.json'
 
 
 class MockPostService implements PostServiceAble{
 
     
-    async fetchSinglePost(id: number): Promise<SinglePost> {
+    fetchSinglePost(id: number): SinglePost {
         return this.toSinglePost(PostMock);
     }
 
-    async fetchMultiplePosts(searchTerm?: String | undefined, offset?: number | undefined): Promise<MultiplePosts> {
+    fetchMultiplePosts(searchTerm?: String | undefined, offset?: number | undefined): MultiplePosts {
         return this.ToMultiokePosts(this.toSinglePost(PostMock));
     }
 
