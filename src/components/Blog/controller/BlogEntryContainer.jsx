@@ -10,18 +10,30 @@ class BlogEntry extends Component {
     }  
 
     render(){
-    console.log(this.props)
-    const {article} = this.props.articles;
-    console.log(article)
+    const articleState = this.props.articles;
+    
+   
+    const renderArticles = () => {
+
+        if(articleState.singleArticle !== undefined){
+            return(
+                <SingleArticle article={articleState.singleArticle}/>
+            )}
+        else{
+            return(<div>
+                loading
+            </div>)
+        }
+    }
 
     return(
         <div>
-            <SingleArticle article={article}/>
+            {renderArticles()}
         </div>
     );
     }
 }
 
-const mapStateToProps = (state) => ({article:state.article})
+const mapStateToProps = (state) => ({articles:state.articles})
 
 export default connect(mapStateToProps, {getSingleArticle})(BlogEntry)

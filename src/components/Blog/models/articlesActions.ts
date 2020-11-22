@@ -30,14 +30,13 @@ export const getArticles = (id?: number) => async (dispatch: Dispatch<articleDis
     
     const res = await postService.fetchMultiplePosts();
 
-    console.log(res)
-
     dispatch({
         type: GET_ARTICLES_SUCCESS,
         payload: res,
     })
 
     }catch(error){
+        console.log(error)
         dispatch({
             type: ARTICLES_ERROR
         })
@@ -53,14 +52,14 @@ export const getArticles = (id?: number) => async (dispatch: Dispatch<articleDis
  * 
  * @param {*} id id identifiyng a single post.
  */
-export const getSingleArticle = (id?: number) => async (dispatch: Dispatch<articleDispatchTypes>) => {
+export const getSingleArticle = (id: number) => async (dispatch: Dispatch<articleDispatchTypes>) => {
 
     try{
     dispatch({
         type: ARTICLES_LOADING
     })
     
-    const res = await postService.fetchSinglePost(3);
+    const res = await postService.fetchSinglePost(id);
 
     dispatch({
         type: GET_SINGLE_ARTICLE_SUCCESS,

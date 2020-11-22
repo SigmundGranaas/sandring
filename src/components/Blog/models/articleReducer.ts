@@ -6,7 +6,7 @@ const initialState: PostState = {
     loading: false,
 }
 
-export function articlesReducer (state = initialState, action: articleDispatchTypes): PostState{
+export function articlesReducer (state: PostState = initialState, action: articleDispatchTypes): PostState{
     switch(action.type){
         case GET_ARTICLES_SUCCESS:
             return {

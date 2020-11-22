@@ -7,10 +7,14 @@ class MockPostService implements PostServiceAble{
 
     
     fetchSinglePost(id: number): SinglePost {
-        return this.toSinglePost(PostMock);
+        try{
+        return this.findSinglePost(PostMock, id);
+        }catch(error){
+            throw error;
+        }
     }
 
-    fetchMultiplePosts(searchTerm?: String | undefined, offset?: number | undefined): MultiplePosts {
+    fetchMultiplePosts(searchTerm?: String): MultiplePosts {
         return this.ToMultiplePosts(PostMock);
     }
 
@@ -23,13 +27,33 @@ class MockPostService implements PostServiceAble{
         }
         return postFromJson;
     }
+    
+    findSinglePost(data: any, id: number): SinglePost{
+        let returnArticle: any = null;
+
+        data.forEach((article:any) => {
+            if(article.id.toString() === id.toString()){
+                returnArticle = this.toSinglePost(article);
+            }
+        });
+       
+        if(returnArticle != null){
+            return returnArticle;
+        }else{
+            throw new Error('Could not find article');
+        }
+    }
+
+
     ToMultiplePosts(data: any): MultiplePosts{
+       
         const PostsFromSinglePost: MultiplePosts = {
             posts: new Array<SinglePost>(),
         }
-
-        PostsFromSinglePost.posts.push(this.toSinglePost(data))
-
+        data.forEach((article:any) => {
+            PostsFromSinglePost.posts.push(this.toSinglePost(article))
+        });
+        
         return PostsFromSinglePost;
     }
     

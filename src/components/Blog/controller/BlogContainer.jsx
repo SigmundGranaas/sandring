@@ -10,26 +10,27 @@ import Article from '../views/Article'
     }
 
     render() {
-        const {articles} = this.props.articles;
-        const renderArticles = () => {
+        const articleState = this.props.articles;
+       
 
-            if(articles !=null){
-            return(
-                <Article articles={articles}/>
-            )}
-            else{
-                return(<div>
-                    loading
-                </div>)
-            }
-        }
-        
-        return (
+          return (
             <div>
-                {renderArticles()} 
+                {renderArticles(articleState)} 
             </div>
               
         )
+    }
+}
+
+export const renderArticles = (articleState, ) => {
+    if(articleState.articles !=null && !articleState.loading){
+    return(
+        <Article articles={articleState.articles}/>
+    )}
+    else{
+        return(<div>
+            loading
+        </div>)
     }
 }
 
