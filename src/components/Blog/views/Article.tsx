@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { MultiplePosts } from '../interfaces/iArticle'
 
-const Article = (props:any) => {
+const Article = (props: any) => {
     const articles: MultiplePosts = props.articles
 
     return(

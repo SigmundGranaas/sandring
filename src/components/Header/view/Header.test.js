@@ -1,9 +1,9 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Header from './Header'
-import {findByTestAttribute} from '../../utils/testing/findByTestAttribute'
-import {createHeaderElements, createHeaderLogo} from './HeaderBuilder'
-import HeaderJson from './Mocks/headerMock.json'
+import {findByTestAttribute} from '../../../utils/testing/findByTestAttribute'
+import {createHeaderElements, createHeaderLogo} from '../logic/HeaderBuilder'
+import HeaderJson from '../model/Mocks/headerMock.json'
 
 
 

@@ -5,9 +5,9 @@ import Gallery from  './containers/GalleryContainer';
 import GalleryImageContainer from './containers/GalleryImageContainer';
 import Blog from './components/Blog/controller/BlogContainer';
 import BlogEntry from './components/Blog/controller/BlogEntryContainer';
-import HeaderContainer from './components/Header/HeaderContainer';
+import HeaderContainer from './components/Header/controller/HeaderContainer';
 import Footer from './components/Footer/Footer';
-import headerMock from './components/Header/Mocks/headerMock.json'
+import headerMock from './components/Header/model/Mocks/headerMock.json'
 import {
   BrowserRouter as Router,
   Switch,

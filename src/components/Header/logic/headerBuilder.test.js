@@ -1,6 +1,6 @@
 import {shallow} from 'enzyme';
-import {findByTestAttribute} from '../../utils/testing/findByTestAttribute'
-import headerMock from './Mocks/headerMock.json'
+import {findByTestAttribute} from '../../../utils/testing/findByTestAttribute'
+import headerMock from '../model/Mocks/headerMock.json'
 import {createHeaderElements, createHeaderLogo} from './HeaderBuilder'
 
 const setUpLogoWithProps = (props={} ) => {

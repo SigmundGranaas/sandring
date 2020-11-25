@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 import { shallow} from "enzyme";
-import Header from './components/Header/Header'
+import Header from './components/Header/view/Header'
 import Footer from './components/Footer/Footer'
 
 it("renders without crashing", () => {

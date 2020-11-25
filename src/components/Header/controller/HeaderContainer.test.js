@@ -1,9 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import HeaderContainer from './HeaderContainer'
-import {findByTestAttribute} from '../../utils/testing/findByTestAttribute'
-import headerMock from './Mocks/headerMock.json'
+import HeaderContainer from '../controller/HeaderContainer'
+import {findByTestAttribute} from '../../../utils/testing/findByTestAttribute'
+import headerMock from '../model/Mocks/headerMock.json'
 
+//TODO test with typescript
 
 const setUpWithProps = (props={} ) => {
     const component = shallow(<HeaderContainer headerElements={headerMock} />);

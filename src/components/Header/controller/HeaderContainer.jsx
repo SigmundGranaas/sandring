@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import {createHeaderElements, createHeaderLogo} from './HeaderBuilder'
+import Header from '../view/Header';
+import {createHeaderElements, createHeaderLogo} from '../logic/HeaderBuilder'
 
 
 class HeaderContainer extends Component{
