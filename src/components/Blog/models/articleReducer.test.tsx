@@ -11,7 +11,9 @@ const initialState: PostState = {
 
 const MockService = new MockPostService()
 
-describe('todos reducer', () => {
+describe('reducer', () => {
+
+
   it('should return the initial state', () => {
     expect(articlesReducer(initialState , {type: ARTICLES_ERROR} )).toEqual(
       {
@@ -29,7 +31,7 @@ describe('todos reducer', () => {
       })
     ).toEqual(
       {
-        articles: MockService.fetchMultiplePosts(),
+        articles: await MockService.fetchMultiplePosts(),
         loading: false,
       }
     )
@@ -43,7 +45,7 @@ describe('todos reducer', () => {
       })
     ).toEqual(
       {
-        singleArticle: MockService.fetchSinglePost(1),
+        singleArticle: await MockService.fetchSinglePost(1),
         loading: false,
       }
     )
