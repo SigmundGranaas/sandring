@@ -21,11 +21,11 @@ describe('todos reducer', () => {
   })
 
 
-  it('should GET_ARTICLES_SUCCESS', () => {
+  it('should GET_ARTICLES_SUCCESS', async () => {
     expect(
         articlesReducer(initialState, {
         type: actionTypes.GET_ARTICLES_SUCCESS,
-        payload: MockService.fetchMultiplePosts(),
+        payload: await MockService.fetchMultiplePosts(),
       })
     ).toEqual(
       {
@@ -35,11 +35,11 @@ describe('todos reducer', () => {
     )
   })
 
-  it('should GET_SINGLE_ARTICLES_SUCCESS', () => {
+  it('should GET_SINGLE_ARTICLES_SUCCESS', async () => {
     expect(
         articlesReducer(initialState, {
         type: actionTypes.GET_SINGLE_ARTICLE_SUCCESS,
-        payload: MockService.fetchSinglePost(1),
+        payload: await MockService.fetchSinglePost(1),
       })
     ).toEqual(
       {
