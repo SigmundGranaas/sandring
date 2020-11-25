@@ -6,7 +6,6 @@
  */
 
 import { Dispatch } from 'redux';
-
 import { articleDispatchTypes, ARTICLES_ERROR, ARTICLES_LOADING, GET_SINGLE_ARTICLE_SUCCESS, GET_ARTICLES_SUCCESS } from '../interfaces/iArticle';
 import Mock from '../services/MockPostService/MockPostService'
 

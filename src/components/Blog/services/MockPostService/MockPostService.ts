@@ -6,7 +6,7 @@ import PostMock from './PostMock.json'
 class MockPostService implements PostServiceAble{
 
     
-    fetchSinglePost(id: number): SinglePost {
+    async fetchSinglePost(id: number): Promise<SinglePost> {
         try{
         return this.findSinglePost(PostMock, id);
         }catch(error){
@@ -14,7 +14,7 @@ class MockPostService implements PostServiceAble{
         }
     }
 
-    fetchMultiplePosts(searchTerm?: String): MultiplePosts {
+    async fetchMultiplePosts(searchTerm?: String): Promise<MultiplePosts> {
         return this.ToMultiplePosts(PostMock);
     }
 

@@ -8,11 +8,11 @@ class PostService implements PostServiceAble{
         this.service = PostService;
     }
 
-    public fetchSinglePost(id: number): SinglePost {
+    public async fetchSinglePost(id: number): Promise<SinglePost> {
         return this.service.fetchSinglePost(id);
     }
 
-    public fetchMultiplePosts(searchTerm?: String, offset?: number): MultiplePosts {
+    public async fetchMultiplePosts(searchTerm?: String, offset?: number): Promise<MultiplePosts> {
         return this.service.fetchMultiplePosts();
     }
 }

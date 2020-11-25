@@ -2,23 +2,25 @@ import axios from 'axios';
 import { PostServiceAble, SinglePost, MultiplePosts } from '../../../../components/Blog/interfaces/iArticle';
 
 
+
+
+
+
 class wordPressDataService implements PostServiceAble{
-    wordpressURL = 'http://localhost:8000';
-
-    fetchSinglePost(id: number): SinglePost {
-        const res = this.fetchSingle(id);
-
-        return this.convertToSinglePost(res);
+    fetchSinglePost(id: number): Promise<SinglePost> {
+        throw new Error('Method not implemented.');
     }
-
-    async fetchSingle(id: number): Promise<object>{
+    wordpressURL = 'http://localhost:8000';
+    async fetchSingle(id: number): Promise<SinglePost>{
         return await axios.get(`${this.wordpressURL}/wp-json/wp/v2/posts/${id}`);
     }
-    async fetchMultiple(): Promise<object>{
-        return await axios.get(`${this.wordpressURL}/wp-json/wp/v2/posts/`);
+
+    async fetchMultiple(): Promise<MultiplePosts>{
+        const res = await axios.get(`${this.wordpressURL}/wp-json/wp/v2/posts/`);
+        return res.data();
     }
 
-     fetchMultiplePosts(searchTerm?: String, offset?: number): MultiplePosts{
+    async fetchMultiplePosts(searchTerm?: String, offset?: number): Promise<MultiplePosts>{
         const res = this.fetchMultiple();
         
         console.log(res);

@@ -33,8 +33,8 @@ export const ARTICLES_ERROR = 'ARTICLES_ERROR';
 
 //ServiceInterface
 export interface PostServiceAble{
-    fetchSinglePost(id: number): SinglePost;
-    fetchMultiplePosts(searchTerm?: String, offset?: number): MultiplePosts;
+    fetchSinglePost(id: number): Promise<SinglePost>;
+    fetchMultiplePosts(searchTerm?: String, offset?: number): Promise<MultiplePosts>;
 }
 
 
