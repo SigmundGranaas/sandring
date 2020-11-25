@@ -1,15 +1,15 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Header from './Header'
+import {findByTestAttribute} from '../../utils/testing/findByTestAttribute'
+import {createHeaderElements, createHeaderLogo} from './HeaderBuilder'
+import HeaderJson from './Mocks/headerMock.json'
+
+
 
 const setUp = (props={} ) => {
-    const component = shallow(<Header {...props} />);
+    const component = shallow(<Header logo = {createHeaderElements(HeaderJson.headerElements)} headerElements = {createHeaderLogo(HeaderJson.logo)}  />);
     return component;
-}
-
-const findByTestAttribute = (component, attribute) => {
-    const wrapper = component.find(`[data-test='${attribute}']`);
-    return wrapper;
 }
 
 
@@ -25,7 +25,7 @@ describe('Header component', () =>{
     
     it('Should render logo class', () =>{
 
-        const logoLink = findByTestAttribute(component, 'header-link')
+        const logoLink = findByTestAttribute(component, 'logo-link')
 
 
         expect(logoLink.length).toBe(1);

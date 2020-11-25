@@ -19,7 +19,7 @@ test('render logo', () => {
 it("renders header elements", () => {
   const wrapper = shallow(<App />);
   const header = <Header/>;
-  expect(wrapper.contains(header)).toEqual(true);
+  expect(wrapper.contains(header)).toEqual(false);
 });
 
 it("renders footer elements", () => {

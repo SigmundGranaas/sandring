@@ -3,6 +3,7 @@ import * as actionTypes from '../interfaces/iArticle'
 import { PostState } from '../interfaces/iArticle'
 import { ARTICLES_ERROR } from '../../../store/types'
 import MockPostService from '../services/MockPostService/MockPostService'
+import React from 'react'
 
 const initialState: PostState = {
     loading: false,

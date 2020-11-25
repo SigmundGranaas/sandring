@@ -1,0 +1,28 @@
+{
+    "logo": {
+        "link": "/",
+        "name": "Sandring Creative Studio"
+    },
+    "headerElements": [
+        {
+            "link": "/gallery",
+            "name": "Gallery",
+            "test": "gallery-link"
+        },
+        {
+            "link": "/software",
+            "name": "Software",
+            "test": "software-link"
+        },
+        {
+            "link": "/blog",
+            "name": "Blog",
+            "test": "blog-link"
+        },
+        {
+            "link": "/about",
+            "name": "About",
+            "test": "about-link"
+        }
+    ]
+}
