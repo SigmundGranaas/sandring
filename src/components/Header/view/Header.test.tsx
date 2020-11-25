@@ -16,7 +16,7 @@ const setUp = (props={} ) => {
 
 describe('Header component', () =>{
 
-    let component;
+    let component: any;
     beforeEach(() => {
         component = setUp();
     })

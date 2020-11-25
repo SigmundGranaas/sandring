@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import { MultiplePosts } from '../interfaces/iArticle'
 import {getArticles} from '../models/articlesActions'
 import Article from '../views/Article'
 
 
- class Blog extends Component {
+interface props{
+    articles: MultiplePosts,
+    getArticles: any,
+}
+
+class Blog extends Component<props> {
     componentDidMount(){
         this.props.getArticles() 
     }
 
     render() {
-        const articleState = this.props.articles;
-       
+        const articleState: MultiplePosts = this.props.articles;
 
           return (
             <div>
@@ -22,7 +27,7 @@ import Article from '../views/Article'
     }
 }
 
-export const renderArticles = (articleState, ) => {
+export const renderArticles = (articleState: any, ) => {
     if(articleState.articles !=null && !articleState.loading){
     return(
         <Article articles={articleState.articles}/>
@@ -34,6 +39,7 @@ export const renderArticles = (articleState, ) => {
     }
 }
 
-const mapStateToProps  = (state) => ({articles:state.articles})
+
+const mapStateToProps  = (state: any) => ({articles:state.articles})
 
 export default connect(mapStateToProps, {getArticles})(Blog)

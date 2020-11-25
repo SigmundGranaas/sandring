@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import HeaderContainer from '../controller/HeaderContainer'
+import HeaderContainer from './HeaderContainer'
 import {findByTestAttribute} from '../../../utils/testing/findByTestAttribute'
 import headerMock from '../model/Mocks/headerMock.json'
 
@@ -20,7 +20,7 @@ const setUpWithoutProps = (props={} ) => {
 
 describe('Header container with proper props', () =>{
 
-    let component;
+    let component: any;
     beforeEach(() => {
         component = setUpWithProps();
     })
@@ -34,7 +34,7 @@ describe('Header container with proper props', () =>{
 
 describe('Header container without proper props', () =>{
 
-    let component;
+    let component: any;
     beforeEach(() => {
         component = setUpWithoutProps();
     })

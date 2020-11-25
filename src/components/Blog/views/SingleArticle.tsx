@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const SingleArticle =(props) => {
+const SingleArticle =(props: any) => {
     const article = props.article
     return(
         <div> 

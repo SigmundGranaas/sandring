@@ -1,10 +1,18 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import { PostState } from '../interfaces/iArticle'
 import {getSingleArticle} from '../models/articlesActions'
 import SingleArticle from '../views/SingleArticle'
 
+interface props{
+    articles: PostState,
+    getSingleArticle: any,
+    match: any,
+}
 
-class BlogEntry extends Component {
+
+
+class BlogEntry extends Component<props> {
     componentDidMount(){
         this.props.getSingleArticle(this.props.match.params.id)
     }  
@@ -34,6 +42,6 @@ class BlogEntry extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({articles:state.articles})
+const mapStateToProps = (state: any) => ({articles:state.articles})
 
 export default connect(mapStateToProps, {getSingleArticle})(BlogEntry)
