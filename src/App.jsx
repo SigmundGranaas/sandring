@@ -17,15 +17,17 @@ import {
 function App() {
   return (
     <Router>
-      <Header/>
+      
         <Switch>
+          <Header/>
           <Route path="/" exact component={Landing}/>
           <Route path="/gallery" exact component={Gallery}/>
           <Route path="/gallery/:id"  component={GalleryImageContainer}/>
           <Route path="/blog" exact component={Blog}/>
           <Route path="/blog/:id" component={BlogEntry}/>
+          <Footer/>
         </Switch>
-        <Footer/>
+        
     </Router>
   );
 }
