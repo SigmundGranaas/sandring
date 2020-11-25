@@ -23,6 +23,11 @@
             "link": "/about",
             "name": "About",
             "test": "about-link"
+        },
+        {
+            "link": "/",
+            "name": "testnav",
+            "test": "test-link"
         }
     ]
 }
