@@ -2,6 +2,7 @@
   "name": "sandring",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/sandring",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@types/jest": "^26.0.15",
